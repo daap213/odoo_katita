@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ===================== LÍNEA ===================== -->
+    <record id="view_katita_linea_list" model="ir.ui.view">
+        <field name="name">katita.linea.list</field>
+        <field name="model">katita.linea</field>
+        <field name="arch" type="xml">
+            <list string="Líneas" editable="bottom">
+                <field name="name"/>
+                <field name="siglas"/>
+                <field name="pos_category_id" readonly="1"/>
+                <field name="observacion"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_katita_linea_form" model="ir.ui.view">
+        <field name="name">katita.linea.form</field>
+        <field name="model">katita.linea</field>
+        <field name="arch" type="xml">
+            <form string="Línea">
+                <group>
+                    <field name="name" placeholder="Ej. Zapato"/>
+                    <field name="siglas" placeholder="Ej. ZAP"/>
+                    <field name="observacion" placeholder="Observaciones (opcional)"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_katita_linea" model="ir.actions.act_window">
+        <field name="name">Líneas</field>
+        <field name="res_model">katita.linea</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ===================== MARCA ====================== -->
+    <record id="view_katita_marca_list" model="ir.ui.view">
+        <field name="name">katita.marca.list</field>
+        <field name="model">katita.marca</field>
+        <field name="arch" type="xml">
+            <list string="Marcas" editable="bottom">
+                <field name="name"/>
+                <field name="siglas"/>
+                <field name="observacion"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_katita_marca_form" model="ir.ui.view">
+        <field name="name">katita.marca.form</field>
+        <field name="model">katita.marca</field>
+        <field name="arch" type="xml">
+            <form string="Marca">
+                <group>
+                    <field name="name" placeholder="Ej. Nike"/>
+                    <field name="siglas" placeholder="Ej. NK"/>
+                    <field name="observacion" placeholder="Observaciones (opcional)"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_katita_marca" model="ir.actions.act_window">
+        <field name="name">Marcas</field>
+        <field name="res_model">katita.marca</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ===================== MODELO ====================== -->
+    <record id="view_katita_modelo_list" model="ir.ui.view">
+        <field name="name">katita.modelo.list</field>
+        <field name="model">katita.modelo</field>
+        <field name="arch" type="xml">
+            <list string="Modelos" editable="bottom">
+                <field name="name"/>
+                <field name="siglas"/>
+                <field name="observacion"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_katita_modelo_form" model="ir.ui.view">
+        <field name="name">katita.modelo.form</field>
+        <field name="model">katita.modelo</field>
+        <field name="arch" type="xml">
+            <form string="Modelo">
+                <group>
+                    <field name="name" placeholder="Ej. Air Max"/>
+                    <field name="siglas" placeholder="Ej. AMX"/>
+                    <field name="observacion" placeholder="Observaciones (opcional)"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_katita_modelo" model="ir.actions.act_window">
+        <field name="name">Modelos</field>
+        <field name="res_model">katita.modelo</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ===================== COLOR ======================= -->
+    <record id="view_katita_color_list" model="ir.ui.view">
+        <field name="name">katita.color.list</field>
+        <field name="model">katita.color</field>
+        <field name="arch" type="xml">
+            <list string="Colores" editable="bottom">
+                <field name="name"/>
+                <field name="siglas"/>
+                <field name="observacion"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_katita_color_form" model="ir.ui.view">
+        <field name="name">katita.color.form</field>
+        <field name="model">katita.color</field>
+        <field name="arch" type="xml">
+            <form string="Color">
+                <group>
+                    <field name="name" placeholder="Ej. Rojo"/>
+                    <field name="siglas" placeholder="Ej. RJ"/>
+                    <field name="observacion" placeholder="Observaciones (opcional)"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_katita_color" model="ir.actions.act_window">
+        <field name="name">Colores</field>
+        <field name="res_model">katita.color</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ===================== GÉNERO ====================== -->
+    <record id="view_katita_genero_list" model="ir.ui.view">
+        <field name="name">katita.genero.list</field>
+        <field name="model">katita.genero</field>
+        <field name="arch" type="xml">
+            <list string="Géneros" editable="bottom">
+                <field name="name"/>
+                <field name="numero"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_katita_genero_form" model="ir.ui.view">
+        <field name="name">katita.genero.form</field>
+        <field name="model">katita.genero</field>
+        <field name="arch" type="xml">
+            <form string="Género">
+                <group>
+                    <field name="name" placeholder="Ej. Masculino"/>
+                    <field name="numero" placeholder="Ej. 01"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_katita_genero" model="ir.actions.act_window">
+        <field name="name">Géneros</field>
+        <field name="res_model">katita.genero</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ===================== MENÚS (Inventario → Configuración) ======================= -->
+    <menuitem id="menu_katita_config" name="Katita" parent="stock.menu_stock_config_settings"
+              sequence="50" groups="stock.group_stock_manager"/>
+    <menuitem id="menu_katita_linea" name="Líneas" parent="menu_katita_config" action="action_katita_linea" sequence="10"/>
+    <menuitem id="menu_katita_marca" name="Marcas" parent="menu_katita_config" action="action_katita_marca" sequence="20"/>
+    <menuitem id="menu_katita_modelo" name="Modelos" parent="menu_katita_config" action="action_katita_modelo" sequence="30"/>
+    <menuitem id="menu_katita_color" name="Colores" parent="menu_katita_config" action="action_katita_color" sequence="40"/>
+    <menuitem id="menu_katita_genero" name="Géneros" parent="menu_katita_config" action="action_katita_genero" sequence="50"/>
+</odoo>

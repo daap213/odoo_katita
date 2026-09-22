@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_katita_mass_create_form" model="ir.ui.view">
+        <field name="name">katita.product.mass.create.form</field>
+        <field name="model">katita.product.mass.create</field>
+        <field name="arch" type="xml">
+            <form string="Crear ítems masivamente">
+                <group>
+                    <group string="Datos básicos">
+                        <field name="name"/>
+                        <field name="standard_price"/>
+                        <field name="price_mode"/>
+                        <field name="list_price" string="Precio de venta"
+                               invisible="price_mode != 'fixed'"/>
+                        <field name="price_percent"
+                               invisible="price_mode != 'percent'"/>
+                        <field name="price_extra"
+                               invisible="price_mode != 'extra'"/>
+                    </group>
+                    <group string="Clasificación">
+                        <field name="katita_linea_id"/>
+                        <field name="katita_marca_id"/>
+                        <field name="katita_modelo_id"/>
+                        <field name="katita_genero_id"/>
+                    </group>
+                </group>
+                <separator string="Disponibilidad"/>
+                <div class="d-flex gap-5">
+                    <span class="d-inline-flex align-items-center">
+                        <field name="sale_ok" widget="boolean_toggle" nolabel="1"/>
+                        <label for="sale_ok" class="ms-2"/>
+                    </span>
+                    <span class="d-inline-flex align-items-center">
+                        <field name="purchase_ok" widget="boolean_toggle" nolabel="1"/>
+                        <label for="purchase_ok" class="ms-2"/>
+                    </span>
+                    <span class="d-inline-flex align-items-center">
+                        <field name="available_in_pos" widget="boolean_toggle" nolabel="1"/>
+                        <label for="available_in_pos" class="ms-2"/>
+                    </span>
+                </div>
+                <group>
+                    <group string="Variación">
+                        <field name="variation_type" widget="radio" nolabel="1"/>
+                    </group>
+                    <group string="Valores">
+                        <!-- Por talla -->
+                        <field name="tallas" placeholder="28,30,32"
+                               invisible="variation_type != 'talla'"
+                               required="variation_type == 'talla'"/>
+                        <field name="katita_color_id"
+                               invisible="variation_type != 'talla'"/>
+                        <!-- Por color -->
+                        <field name="color_ids" widget="many2many_tags"
+                               invisible="variation_type != 'color'"
+                               required="variation_type == 'color'"/>
+                        <field name="talla"
+                               invisible="variation_type != 'color'"
+                               required="variation_type == 'color'"/>
+                        <button name="action_load" type="object" string="Cargar"
+                                class="btn-primary" icon="fa-refresh"/>
+                    </group>
+                </group>
+                <separator string="Ítems a crear"/>
+                <field name="line_ids">
+                    <list string="Ítems" create="false" delete="true" editable="bottom">
+                        <field name="name"/>
+                        <field name="color_id"/>
+                        <field name="talla"/>
+                        <field name="codigo"/>
+                        <field name="list_price"/>
+                    </list>
+                </field>
+                <footer>
+                    <button name="action_create" type="object" string="Crear"
+                            class="btn-primary"/>
+                    <button string="Cancelar" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción enlazada a Productos: aparece en el menú ⚙ Acciones de la lista/ficha -->
+    <record id="action_katita_mass_create" model="ir.actions.act_window">
+        <field name="name">Crear masivamente (Katita)</field>
+        <field name="res_model">katita.product.mass.create</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="product.model_product_template"/>
+        <field name="binding_view_types">list,form</field>
+    </record>
+
+    <!-- Entrada de menú visible en Inventario -->
+    <menuitem id="menu_katita_mass_create" name="Crear masivamente (Katita)"
+              parent="stock.menu_stock_inventory_control"
+              action="action_katita_mass_create" sequence="90"
+              groups="stock.group_stock_manager"/>
+</odoo>

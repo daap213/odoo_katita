@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="katita_product_template_form_inherit" model="ir.ui.view">
+        <field name="name">product.template.form.katita</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Botón Imprimir QR en la cabecera del ítem -->
+            <xpath expr="//form/sheet" position="before">
+                <header>
+                    <button name="action_print_katita_qr" type="object"
+                            string="Imprimir QR" class="btn-secondary" icon="fa-qrcode"
+                            invisible="not katita_codigo"/>
+                </header>
+            </xpath>
+            <!-- Precio de venta calculable (directo / % / costo+valor): justo debajo del precio de venta -->
+            <xpath expr="//div[@name='list_price_uom']" position="after">
+                <field name="katita_price_mode"/>
+                <field name="katita_price_percent"
+                       invisible="katita_price_mode != 'percent'"/>
+                <field name="katita_price_extra"
+                       invisible="katita_price_mode != 'extra'"/>
+            </xpath>
+            <xpath expr="//field[@name='list_price']" position="attributes">
+                <attribute name="readonly">katita_price_mode != 'fixed'</attribute>
+            </xpath>
+            <!-- Campos de clasificación Katita + código (ancho completo, 2 columnas) -->
+            <xpath expr="//page[@name='general_information']/group[1]" position="after">
+                <group name="katita_group" string="Clasificación Katita" col="2">
+                    <group>
+                        <field name="katita_linea_id"/>
+                        <field name="katita_marca_id"/>
+                        <field name="katita_modelo_id"/>
+                        <field name="katita_color_id"/>
+                    </group>
+                    <group>
+                        <field name="katita_genero_id"/>
+                        <field name="katita_talla"/>
+                        <field name="katita_codigo"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

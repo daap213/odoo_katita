@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="web.SelectCreateDialog" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o_create_button')]" position="after">
+            <button t-if="showKatitaMassCreate"
+                    class="btn btn-secondary o_katita_mass_button"
+                    t-on-click="onKatitaMassCreate">Creación masiva</button>
+        </xpath>
+    </t>
+</templates>

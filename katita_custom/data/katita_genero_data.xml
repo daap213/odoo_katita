@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="katita_genero_masculino" model="katita.genero">
+        <field name="name">Masculino</field>
+        <field name="numero">01</field>
+    </record>
+    <record id="katita_genero_femenino" model="katita.genero">
+        <field name="name">Femenino</field>
+        <field name="numero">02</field>
+    </record>
+</odoo>

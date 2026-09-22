@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_katita_linea_user,katita.linea.user,model_katita_linea,base.group_user,1,0,0,0
+access_katita_linea_mgr,katita.linea.mgr,model_katita_linea,stock.group_stock_manager,1,1,1,1
+access_katita_marca_user,katita.marca.user,model_katita_marca,base.group_user,1,0,0,0
+access_katita_marca_mgr,katita.marca.mgr,model_katita_marca,stock.group_stock_manager,1,1,1,1
+access_katita_modelo_user,katita.modelo.user,model_katita_modelo,base.group_user,1,0,0,0
+access_katita_modelo_mgr,katita.modelo.mgr,model_katita_modelo,stock.group_stock_manager,1,1,1,1
+access_katita_color_user,katita.color.user,model_katita_color,base.group_user,1,0,0,0
+access_katita_color_mgr,katita.color.mgr,model_katita_color,stock.group_stock_manager,1,1,1,1
+access_katita_genero_user,katita.genero.user,model_katita_genero,base.group_user,1,0,0,0
+access_katita_genero_mgr,katita.genero.mgr,model_katita_genero,stock.group_stock_manager,1,1,1,1
+access_katita_mass_create,katita.mass.create,model_katita_product_mass_create,stock.group_stock_manager,1,1,1,1
+access_katita_mass_create_line,katita.mass.create.line,model_katita_product_mass_create_line,stock.group_stock_manager,1,1,1,1

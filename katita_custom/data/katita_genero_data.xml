@@ -8,4 +8,16 @@
         <field name="name">Femenino</field>
         <field name="numero">02</field>
     </record>
+    <record id="katita_genero_nino" model="katita.genero">
+        <field name="name">Niño</field>
+        <field name="numero">03</field>
+    </record>
+    <record id="katita_genero_nina" model="katita.genero">
+        <field name="name">Niña</field>
+        <field name="numero">04</field>
+    </record>
+    <record id="katita_genero_unisex" model="katita.genero">
+        <field name="name">Unisex</field>
+        <field name="numero">05</field>
+    </record>
 </odoo>

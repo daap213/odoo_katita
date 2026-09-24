@@ -98,8 +98,8 @@ class KatitaColor(models.Model):
 
 
 class KatitaGenero(models.Model):
-    """Género del producto (Masculino/Femenino). El número forma un segmento del
-    código: Masculino=01, Femenino=02."""
+    """Género del producto. El número forma un segmento del código:
+    Masculino=01, Femenino=02, Niño=03, Niña=04, Unisex=05."""
     _name = 'katita.genero'
     _description = 'Género (Katita)'
     _order = 'numero'

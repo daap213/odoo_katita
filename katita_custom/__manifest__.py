@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Katita - Customizaciones',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.1.0',
     'summary': 'Customizaciones a medida para el cliente Katita',
     'description': """
 Módulo contenedor de las personalizaciones del cliente Katita.

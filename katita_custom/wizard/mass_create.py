@@ -25,6 +25,8 @@ class KatitaMassCreate(models.TransientModel):
     purchase_ok = fields.Boolean(string='Compras', default=True)
     available_in_pos = fields.Boolean(string='Punto de venta', default=True,
                                       help='Los ítems creados estarán disponibles en el Punto de Venta.')
+    is_storable = fields.Boolean(string='Rastrear inventario', default=True,
+                                 help='Los ítems creados llevarán control de stock (cantidad a mano).')
 
     katita_linea_id = fields.Many2one('katita.linea', string='Línea', required=True)
     katita_marca_id = fields.Many2one('katita.marca', string='Marca', required=True)
@@ -102,6 +104,8 @@ class KatitaMassCreate(models.TransientModel):
         for line in self.line_ids:
             vals = {
                 'name': line.name or self.name,
+                'type': 'consu',
+                'is_storable': self.is_storable,
                 'list_price': line.list_price,
                 'standard_price': self.standard_price,
                 'sale_ok': self.sale_ok,
